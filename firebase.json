@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "entrenos-page",
+    "public": "dist/entrenos-page/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
