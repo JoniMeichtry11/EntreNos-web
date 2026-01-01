@@ -1,0 +1,197 @@
+<div class="min-h-screen bg-slate-50 font-sans text-slate-900">
+
+  <!-- Navbar -->
+  <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo -->
+        <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" (click)="scrollTo('home')">
+          <img src="icon.png" alt="EntreNos Logo" class="h-10 w-10 rounded-xl shadow-sm">
+          <span class="font-bold text-xl tracking-tight text-slate-800">EntreNos</span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8 items-center">
+          <button (click)="scrollTo('features')" class="text-slate-600 hover:text-primary-600 font-medium transition-colors">Características</button>
+          <button (click)="scrollTo('faq')" class="text-slate-600 hover:text-primary-600 font-medium transition-colors">Preguntas</button>
+          <button class="bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-lg shadow-slate-900/20 hover:shadow-slate-900/40">
+            Descargar App
+          </button>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center">
+          <button (click)="toggleMenu()" class="text-slate-600 hover:text-slate-900 p-2">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path *ngIf="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              <path *ngIf="isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div *ngIf="isMenuOpen" class="md:hidden bg-white border-t border-slate-100 absolute w-full shadow-xl">
+      <div class="px-4 pt-2 pb-6 space-y-1">
+        <button (click)="scrollTo('features'); toggleMenu()" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 rounded-lg">Características</button>
+        <button (click)="scrollTo('faq'); toggleMenu()" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 rounded-lg">Preguntas</button>
+        <div class="pt-4">
+          <button class="w-full bg-primary-600 hover:bg-primary-700 text-white px-5 py-3 rounded-lg font-bold shadow-lg transition-all">
+            Descargar Gratis
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="pt-32 pb-16 lg:pt-48 lg:pb-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+        <!-- Text Content -->
+        <div class="lg:col-span-6 text-center lg:text-left mb-12 lg:mb-0">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-sm font-semibold mb-6 border border-primary-100">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+            </span>
+            Nueva App de Finanzas
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight">
+            Cuentas claras <br class="hidden lg:block">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-indigo-600">amistades largas.</span>
+          </h1>
+          <p class="text-lg sm:text-xl text-slate-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            EntreNos es la herramienta definitiva para llevar las cuentas en tu hogar, viajes o grupo de amigos. Olvídate de las planillas complicadas.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <button class="flex items-center justify-center gap-3 bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-xl shadow-slate-900/20 hover:shadow-slate-900/40 hover:-translate-y-1">
+              Google Play
+            </button>
+            <!-- <button class="flex items-center justify-center gap-3 bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 px-8 py-4 rounded-xl font-bold transition-all shadow-sm hover:shadow-md">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M17.886 12.3c-.025-2.695 2.193-3.996 2.293-4.053-1.258-1.841-3.212-2.091-3.899-2.124-1.649-.168-3.215.975-4.049.975-.845 0-2.138-.95-3.514-.925-1.808.026-3.486 1.055-4.42 2.684-1.89 3.273-.483 8.114 1.353 10.766.906 1.298 1.972 2.766 3.4 2.721 1.352-.053 1.867-.88 3.513-.88 1.635 0 2.105.88 3.534.853 1.467-.024 2.39-1.334 3.284-2.651.996-1.442 1.4-2.835 1.416-2.906-.032-.016-3.257-1.25-3.315-4.47h.004zM14.61 3.868c.731-.89 1.226-2.134 1.09-3.371-1.059.043-2.345.71-3.109 1.618-.684.81-1.282 2.122-1.12 3.342 1.182.092 2.394-.693 3.138-1.59z"/></svg>
+              App Store
+            </button> -->
+          </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="lg:col-span-6 relative mt-12 lg:mt-0">
+          <div class="relative rounded-3xl bg-gradient-to-b from-primary-100 to-indigo-50 p-8 shadow-2xl lg:rotate-3 hover:rotate-0 transition-transform duration-500 flex justify-center items-center">
+            <!-- Replaced Mockup with Real Image -->
+            <img src="phone-mockup.png" alt="App Screenshot" class="w-full max-w-sm rounded-[2rem] border-8 border-slate-900 shadow-2xl">
+            
+            <!-- Decorative blobs -->
+            <div class="absolute -top-12 -right-12 w-24 h-24 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+            <div class="absolute -bottom-12 -left-12 w-24 h-24 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-24 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-base font-bold text-primary-600 tracking-wide uppercase mb-2">Características</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Todo lo que necesitas.</p>
+        <p class="mt-4 max-w-2xl text-xl text-slate-500 mx-auto">
+          Diseñado para hacer que las finanzas compartidas sean simples y transparentes.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div *ngFor="let feature of features" class="group relative bg-slate-50 hover:bg-white p-8 rounded-2xl transition-all duration-300 hover:shadow-xl border border-slate-100 hover:border-primary-100">
+          <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-primary-50 rounded-full opacity-0 group-hover:opacity-50 transition-opacity blur-2xl"></div>
+          <div class="text-4xl mb-6 transform group-hover:scale-110 transition-transform duration-300">{{ feature.icon }}</div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary-600 transition-colors">{{ feature.title }}</h3>
+          <p class="text-slate-600 leading-relaxed">{{ feature.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-24 bg-slate-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Preguntas Frecuentes</h2>
+      </div>
+
+      <div class="space-y-4">
+        <div *ngFor="let faq of faqs; let i = index" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+          <details class="group">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-slate-900 hover:bg-slate-50 transition-colors">
+              <span class="text-lg font-bold">{{ faq.question }}</span>
+              <span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+              </span>
+            </summary>
+            <div class="text-slate-600 px-6 pb-6 pt-0 leading-relaxed text-base">
+              {{ faq.answer }}
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-24 bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-8">
+        ¿Listo para ordenar tus cuentas?
+      </h2>
+      <p class="text-slate-400 text-xl max-w-2xl mx-auto mb-10">
+        Descarga EntreNos hoy y empieza a gestionar tus gastos compartidos de forma inteligente.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button class="bg-primary-600 hover:bg-primary-500 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-primary-500/25">
+          Descargar ahora
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div class="col-span-1 md:col-span-2">
+           <div class="flex items-center gap-2 mb-4">
+              <img src="icon.png" alt="EntreNos Logo" class="h-8 w-8 rounded-lg grayscale opacity-80">
+              <span class="font-bold text-xl tracking-tight text-slate-900">EntreNos</span>
+           </div>
+           <p class="text-slate-500 leading-relaxed max-w-sm">
+             La forma más simple de compartir gastos y llevar las cuentas claras con amigos y familia.
+           </p>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-900 mb-4">Legal</h4>
+          <ul class="space-y-3 text-slate-500">
+            <!-- Router Link to Privacy Policy -->
+            <li><a routerLink="/privacy-policy" class="hover:text-primary-600 transition-colors text-left cursor-pointer">Política de Privacidad</a></li>
+            <li><a href="#" class="hover:text-primary-600 transition-colors">Términos de Servicio</a></li>
+            <li><a href="#" class="hover:text-primary-600 transition-colors">Seguridad de Datos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-900 mb-4">Contacto</h4>
+          <ul class="space-y-3 text-slate-500">
+            <li><a href="mailto:soporte@entrenos.app" class="hover:text-primary-600 transition-colors">Soporte</a></li>
+            <li><a href="#" class="hover:text-primary-600 transition-colors">Twitter</a></li>
+            <li><a href="#" class="hover:text-primary-600 transition-colors">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-slate-400 text-sm">
+          © {{ currentYear }} EntreNos. Todos los derechos reservados.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</div>
