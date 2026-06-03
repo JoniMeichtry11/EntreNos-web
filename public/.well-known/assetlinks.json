@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.entrenos.app",
+      "sha256_cert_fingerprints": [
+        "39A038CB4B42BBE9289090AF87C8B98BCAA717BBFAE9C570B620DA5FC217829E"
+      ]
+    }
+  }
+]
