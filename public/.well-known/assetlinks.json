@@ -1,11 +1,26 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.entrenos.app",
       "sha256_cert_fingerprints": [
         "39A038CB4B42BBE9289090AF87C8B98BCAA717BBFAE9C570B620DA5FC217829E"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.meichtech.entrenos",
+      "sha256_cert_fingerprints": [
+        "39:A0:38:CB:4B:42:BB:E9:28:90:90:AF:87:C8:B9:8B:CA:A7:17:BB:FA:E9:C5:70:B6:20:DA:5F:C2:17:82:9E"
       ]
     }
   }
